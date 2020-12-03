@@ -28,11 +28,10 @@ pub fn day3() {
 }
 
 fn how_many_trees_hit(terrain: &Terrain, right_offset: usize, down_offset: usize) -> u32 {
-    (0..terrain.len())
+    terrain.iter()
         .step_by(down_offset)
         .enumerate()
-        .fold(0, |total, (j, i)| {
-            let row = &terrain[i];
+        .fold(0, |total, (j, row)| {
             match row[(right_offset * j) % row.len()] {
                 Square::Open => total,
                 Square::Tree => total + 1,
