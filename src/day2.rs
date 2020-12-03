@@ -37,17 +37,16 @@ fn read_input() -> Vec<Password> {
     let contents = read_input_to_string(String::from("day2"));
 
     let re = Regex::new(r"([0-9]+)-([0-9]+) ([a-zA-z]): (.*)").unwrap();
-    let mut passwords = Vec::new();
-    for cap in re.captures_iter(contents.as_str()) {
-        let first_num = cap[1].parse::<usize>().unwrap();
-        let second_num = cap[2].parse::<usize>().unwrap();
-        let letter = cap[3].chars().nth(0).unwrap();
-        let password = cap[4].to_string();
+    re.captures_iter(contents.as_str())
+        .map(|cap| {
+            let first_num = cap[1].parse::<usize>().unwrap();
+            let second_num = cap[2].parse::<usize>().unwrap();
+            let letter = cap[3].chars().nth(0).unwrap();
+            let password = cap[4].to_string();
 
-        passwords.push((password, letter, first_num, second_num));
-    }
-
-    passwords
+            (password, letter, first_num, second_num)
+        })
+        .collect::<Vec<Password>>()
 }
 
 #[cfg(test)]
