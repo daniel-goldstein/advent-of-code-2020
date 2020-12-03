@@ -1,7 +1,8 @@
 use crate::utils::read_input_to_string;
 
-#[allow(dead_code)]
-fn main() {
+pub fn day1() {
+    println!("DAY 1");
+
     let input = read_input();
     let (x, y) = find_sum_to(&input, 2020).unwrap();
     println!("The answer is: {}", x * y);
@@ -36,14 +37,4 @@ fn read_input() -> Vec<i32> {
         .lines()
         .map(|s| s.parse::<i32>().unwrap())
         .collect::<Vec<i32>>()
-}
-
-#[cfg(test)]
-mod test {
-    use super::main;
-
-    #[test]
-    fn test() {
-        main();
-    }
 }

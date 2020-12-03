@@ -3,8 +3,8 @@ use regex::Regex;
 
 type Password = (String, char, usize, usize);
 
-#[allow(dead_code)]
-fn main() {
+pub fn day2() {
+    println!("DAY 2");
     println!(
         "There are {} valid passwords",
         how_many_valid(read_input(), is_valid_occurences)
@@ -47,14 +47,4 @@ fn read_input() -> Vec<Password> {
             (password, letter, first_num, second_num)
         })
         .collect::<Vec<Password>>()
-}
-
-#[cfg(test)]
-mod test {
-    use super::main;
-
-    #[test]
-    fn how_many_valid() {
-        main();
-    }
 }
