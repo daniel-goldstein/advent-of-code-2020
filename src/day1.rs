@@ -15,7 +15,7 @@ fn find_sum_to(nums: &Vec<i32>, sum: i32) -> Option<(i32, i32)> {
     for &i in nums.iter() {
         for &j in nums.iter() {
             if i + j == sum {
-                return Some((i, j))
+                return Some((i, j));
             }
         }
     }
@@ -25,19 +25,17 @@ fn find_sum_to(nums: &Vec<i32>, sum: i32) -> Option<(i32, i32)> {
 fn find_three_sum_to(nums: &Vec<i32>, sum: i32) -> (i32, i32, i32) {
     for &i in nums.iter() {
         if let Some((j, k)) = find_sum_to(nums, sum - i) {
-            return (i, j, k)
+            return (i, j, k);
         }
     }
     panic!("Couldn't find desired numbers");
 }
 
 fn read_input() -> Vec<i32> {
-    let contents = read_input_to_string(String::from("day1"));
-    let mut v: Vec<i32> = Vec::new();
-    for s in contents.lines() {
-        v.push(s.parse::<i32>().unwrap());
-    }
-    v
+    read_input_to_string(String::from("day1"))
+        .lines()
+        .map(|s| s.parse::<i32>().unwrap())
+        .collect::<Vec<i32>>()
 }
 
 #[cfg(test)]
