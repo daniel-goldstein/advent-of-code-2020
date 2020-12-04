@@ -36,7 +36,7 @@ fn is_valid_indices(password_and_policy: &Password) -> bool {
 fn read_input() -> Vec<Password> {
     let contents = read_input_to_string(String::from("day2"));
 
-    let re = Regex::new(r"([0-9]+)-([0-9]+) ([a-zA-z]): (.*)").unwrap();
+    let re = Regex::new(r"(\d+)-(\d+) (\w): (\w+)").unwrap();
     re.captures_iter(contents.as_str())
         .map(|cap| {
             let first_num = cap[1].parse::<usize>().unwrap();
