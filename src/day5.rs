@@ -27,6 +27,7 @@ pub fn day5() {
 
 fn find_seat_id(boarding_pass: &str) -> usize {
     let (forward_back, left_right) = boarding_pass.split_at(7);
+    // Could just do bitwise, but I think this is cute
     let row = bin_search(0..128, 'B', 'F', forward_back);
     let col = bin_search(0..8, 'R', 'L', left_right);
     row * 8 + col
