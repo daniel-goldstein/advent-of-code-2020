@@ -18,7 +18,11 @@ pub fn day6() {
 }
 
 fn count_unique_any_answer(group_answers: &str) -> usize {
-    group_answers.chars().collect::<HashSet<char>>().len()
+    group_answers
+        .lines()
+        .flat_map(|s| s.chars())
+        .collect::<HashSet<char>>()
+        .len()
 }
 
 fn count_unique_all_answer(group_answers: &str) -> usize {
