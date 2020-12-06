@@ -28,9 +28,8 @@ fn count_unique_any_answer(group_answers: &str) -> usize {
 }
 
 fn count_unique_all_answer(group_answers: &str) -> usize {
-    let lines = group_answers.lines().collect::<Vec<&str>>();
     ASCII_LOWER
         .iter()
-        .filter(|&c| lines.iter().all(|s| s.find(*c).is_some()))
+        .filter(|&c| group_answers.lines().all(|s| s.find(*c).is_some()))
         .count()
 }
