@@ -6,6 +6,7 @@ use advent_of_code_2020::day5::day5;
 use advent_of_code_2020::day6::day6;
 use advent_of_code_2020::day7::day7;
 use advent_of_code_2020::day8::day8;
+use advent_of_code_2020::day9::day9;
 
 fn main() {
     println!();
@@ -24,4 +25,6 @@ fn main() {
     day7();
     println!();
     day8();
+    println!();
+    day9();
 }

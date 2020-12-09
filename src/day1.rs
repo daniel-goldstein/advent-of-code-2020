@@ -12,7 +12,7 @@ pub fn day1() {
     println!("The answer is: {}", x * y * z);
 }
 
-fn find_sum_to(nums: &Vec<i32>, sum: i32) -> Option<(i32, i32)> {
+pub fn find_sum_to(nums: &[i64], sum: i64) -> Option<(i64, i64)> {
     for &i in nums.iter() {
         for &j in nums.iter() {
             if i + j == sum {
@@ -23,7 +23,7 @@ fn find_sum_to(nums: &Vec<i32>, sum: i32) -> Option<(i32, i32)> {
     None
 }
 
-fn find_three_sum_to(nums: &Vec<i32>, sum: i32) -> (i32, i32, i32) {
+fn find_three_sum_to(nums: &[i64], sum: i64) -> (i64, i64, i64) {
     for &i in nums.iter() {
         if let Some((j, k)) = find_sum_to(nums, sum - i) {
             return (i, j, k);
@@ -32,9 +32,9 @@ fn find_three_sum_to(nums: &Vec<i32>, sum: i32) -> (i32, i32, i32) {
     panic!("Couldn't find desired numbers");
 }
 
-fn read_input() -> Vec<i32> {
+fn read_input() -> Vec<i64> {
     read_input_to_string(String::from("day1"))
         .lines()
-        .map(|s| s.parse::<i32>().unwrap())
-        .collect::<Vec<i32>>()
+        .map(|s| s.parse::<i64>().unwrap())
+        .collect::<Vec<i64>>()
 }
