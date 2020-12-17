@@ -16,7 +16,10 @@ struct Boat {
 
 impl Boat {
     fn new() -> Self {
-        Boat { dir: 0., position: (0., 0.) }
+        Boat {
+            dir: 0.,
+            position: (0., 0.),
+        }
     }
 
     fn onward_and_forward(&mut self, actions: &[Action]) {
@@ -43,8 +46,10 @@ impl Boat {
 fn part1(actions: &[Action]) {
     let mut boat = Boat::new();
     boat.onward_and_forward(actions);
-    println!("Final position has distance: {}",
-        manhattan_distance(boat.position));
+    println!(
+        "Final position has distance: {}",
+        manhattan_distance(boat.position)
+    );
 }
 
 struct Boat2 {
@@ -54,7 +59,10 @@ struct Boat2 {
 
 impl Boat2 {
     fn new() -> Self {
-        Boat2 { waypoint: (10., 1.), position: (0., 0.) }
+        Boat2 {
+            waypoint: (10., 1.),
+            position: (0., 0.),
+        }
     }
 
     fn onward_and_forward(&mut self, actions: &[Action]) {
@@ -90,8 +98,10 @@ impl Boat2 {
 fn part2(actions: &[Action]) {
     let mut boat = Boat2::new();
     boat.onward_and_forward(actions);
-    println!("The actual distance is: {}",
-        manhattan_distance(boat.position));
+    println!(
+        "The actual distance is: {}",
+        manhattan_distance(boat.position)
+    );
 }
 
 fn manhattan_distance(position: (f32, f32)) -> f32 {

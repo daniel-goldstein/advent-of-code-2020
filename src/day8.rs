@@ -26,7 +26,7 @@ fn part1() -> i32 {
                 accumulator += val;
                 idx += 1;
             }
-            _ => panic!("Unknown instruction: {}", instruction)
+            _ => panic!("Unknown instruction: {}", instruction),
         }
     }
 }
@@ -43,15 +43,15 @@ fn part2() -> i32 {
                     return acc;
                 }
                 program[line].0 = "jmp";
-            },
+            }
             "nop" => {
                 program[line].0 = "jmp";
                 if let Some(acc) = run_program(&program) {
                     return acc;
                 }
                 program[line].0 = "nop";
-            },
-            _ => {},
+            }
+            _ => {}
         }
         line += 1;
     }
@@ -76,7 +76,7 @@ fn run_program(program: &Vec<(&str, i32)>) -> Option<i32> {
                 accumulator += val;
                 idx += 1;
             }
-            _ => panic!("Unknown instruction: {}", instruction)
+            _ => panic!("Unknown instruction: {}", instruction),
         }
     }
 

@@ -1,5 +1,5 @@
-use advent_of_code_2020::day13::day13;
+use advent_of_code_2020::day14::day14;
 
 fn main() {
-    day13();
+    day14();
 }
